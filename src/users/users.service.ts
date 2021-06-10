@@ -10,11 +10,16 @@ export class UsersService {
 
   async createUser(dto: CreateUserDto) {
     const user = await this.userRepository.create(dto);
-    return dto;
+    return user;
   }
 
   async getAllUsers() {
     const users = await this.userRepository.findAll();
     return users;
+  }
+
+  async getById(id: string) {
+    const user = await this.userRepository.findByPk(id);
+    return user;
   }
 }
