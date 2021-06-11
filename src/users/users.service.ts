@@ -30,11 +30,7 @@ export class UsersService {
   }
 
   async getById(id: string) {
-    const user = await this.userRepository.findByPk(id, {
-      include: {
-        all: true
-      }
-    });
+    const user = await this.userRepository.findByPk(id);
     return user;
   }
 }
